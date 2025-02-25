@@ -7,6 +7,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+// 3-1-1 테스트 코드 연습
 @ExtendWith(SpringExtension.class)
 class PasswordEncoderTest {
 
@@ -20,7 +21,7 @@ class PasswordEncoderTest {
         String encodedPassword = passwordEncoder.encode(rawPassword);
 
         // when
-        boolean matches = passwordEncoder.matches(encodedPassword, rawPassword);
+        boolean matches = passwordEncoder.matches(rawPassword, encodedPassword);
 
         // then
         assertTrue(matches);
