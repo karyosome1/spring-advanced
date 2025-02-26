@@ -12,6 +12,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import java.time.LocalDateTime;
 
+// 4 API 로깅
 @Slf4j
 @Component
 public class AdminLoggingInterceptor implements HandlerInterceptor {

@@ -14,6 +14,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     private final AdminLoggingInterceptor adminLoggingInterceptor;
 
+    // 4 API 로깅
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // admin API에 Interceptor 적용
