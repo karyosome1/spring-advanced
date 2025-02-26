@@ -4,7 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.example.expert.domain.common.exception.InvalidRequestException;
-import org.example.expert.domain.common.exception.ServerException;
+import org.example.expert.domain.auth.exception.AuthException;
 import org.example.expert.domain.user.enums.UserRole;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -42,7 +42,7 @@ public class AdminLoggingInterceptor implements HandlerInterceptor {
         UserRole userRole = UserRole.of((String) request.getAttribute("userRole"));
 
         if (userId == null || email == null || userRole == null) {
-            throw new ServerException("서버 인증 정보가 누락되었습니다.");
+            throw new AuthException("인증 정보가 누락되었습니다.");
         }
 
         // 어드민 권한 확인
