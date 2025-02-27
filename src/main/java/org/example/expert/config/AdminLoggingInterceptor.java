@@ -3,7 +3,6 @@ package org.example.expert.config;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.example.expert.domain.common.exception.InvalidRequestException;
 import org.example.expert.domain.auth.exception.AuthException;
 import org.example.expert.domain.user.enums.UserRole;
 import org.springframework.stereotype.Component;
@@ -43,11 +42,6 @@ public class AdminLoggingInterceptor implements HandlerInterceptor {
 
         if (userId == null || email == null || userRole == null) {
             throw new AuthException("인증 정보가 누락되었습니다.");
-        }
-
-        // 어드민 권한 확인
-        if (userRole != UserRole.ADMIN) {
-            throw new InvalidRequestException("어드민 권한이 필요합니다.");
         }
 
         // 로그 기록
